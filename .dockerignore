@@ -1,2 +1,7 @@
 fly.toml
 .git
+
+# Files to ignore in server/
+
+/node_modules
+/dist

@@ -1,1 +1,5 @@
-# How to run a server: `node server/server.js`
+#Development Section
+* Run a NestJS server: `npm run start:dev`
+
+# Testing Section
+* Run test for NestJS: `npm run test`
