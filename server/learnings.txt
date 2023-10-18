@@ -1,1 +1,5 @@
-# How to run a server: `node server/server.js`
+#Development Section
+How to run a server: `node server/server.js`
+
+# Testing Section
+Run test: `npm run test`
