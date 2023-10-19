@@ -3,3 +3,5 @@
 
 # Testing Section
 * Run test for NestJS: `npm run test`
+
+* Run test for Angular: `ng test`
