@@ -1,2 +1,3 @@
+# Sync changes with .dockerignore
 /node_modules
 /dist
