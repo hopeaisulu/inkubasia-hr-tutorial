@@ -1,6 +1,4 @@
-fly.toml
-.git
-
+# Sync changes with .dockerignore
 # Compiled output
 /dist
 /tmp
