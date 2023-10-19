@@ -1,5 +1,7 @@
 #Development Section
-* How to run a server: `node server/server.js`
+* Run a NestJS server: `npm run start:dev`
+* Run in `client/` `ng build --watch` when files change
+
 
 # Testing Section
 * Run test for NestJS: `npm run test`
