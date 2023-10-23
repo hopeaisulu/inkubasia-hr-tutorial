@@ -1,9 +1,16 @@
 import { Module } from '@nestjs/common';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+const project_root = join(__dirname, '..', '..');
 @Module({
-  imports: [],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(project_root, 'client', 'dist', 'client'),
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
