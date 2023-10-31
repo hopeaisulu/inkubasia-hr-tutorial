@@ -5,6 +5,8 @@ import { EmployeeAppModule } from './employee-app/employee-app.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { EmployeeAppRootComponent } from './employee-app/employee-app-root/employee-app-root.component';
+import { AdminAppModule } from './admin-app/admin-app.module';
+import { AdminAppRootComponent } from './admin-app/admin-app-root/admin-app-root.component';
 
 describe('AppComponent', () => {
   beforeEach(() =>
@@ -14,6 +16,7 @@ describe('AppComponent', () => {
         EmployeeAppModule,
         MatToolbarModule,
         MatIconModule,
+        AdminAppModule,
       ],
       declarations: [AppComponent],
     })
@@ -37,6 +40,15 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain(
       'Hello, Aisulu'
+    );
+  });
+
+  it('should render title for Admin App', () => {
+    const fixture = TestBed.createComponent(AdminAppRootComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.content span')?.textContent).toContain(
+      'Here is the Admin app!'
     );
   });
 });
