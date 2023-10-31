@@ -5,5 +5,15 @@
   </div>
 </mat-toolbar>
 <div class="content welcome-message">
-  <span>Here is the Admin app!</span>
+  <span>Employees</span>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+    </tr>
+  </table>
 </div>
