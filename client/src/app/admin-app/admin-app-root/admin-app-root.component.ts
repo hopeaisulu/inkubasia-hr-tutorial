@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Employee } from 'src/app/employee';
+import { Employee } from '@shared/employee.interface';
 import { EmployeeService } from 'src/app/employee.service';
 
 @Component({
