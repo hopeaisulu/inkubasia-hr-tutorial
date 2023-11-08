@@ -4,7 +4,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-const project_root = join(__dirname, '..', '..');
+const project_root = join(__dirname, '..', '..', '..', '..');
 @Module({
   imports: [
     ServeStaticModule.forRoot({
