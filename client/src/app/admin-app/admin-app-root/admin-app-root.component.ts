@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from '@shared/employee.interface';
+import { Observable } from 'rxjs';
 import { EmployeeService } from 'src/app/employee.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { EmployeeService } from 'src/app/employee.service';
 })
 export class AdminAppRootComponent {
   constructor(private employeeService: EmployeeService) {}
-  employees: Employee[] = [];
+  employees$!: Observable<Employee[]>;
 
-  ngOnInit() {
-    this.employees = this.employeeService.getEmployees();
+  async ngOnInit() {
+    this.employees$ = await this.employeeService.getEmployees();
   }
 }

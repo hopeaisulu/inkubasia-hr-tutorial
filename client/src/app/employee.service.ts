@@ -1,55 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Employee } from '@shared/employee.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
-  constructor() {}
+  constructor(private httpService: HttpClient) {}
 
-  getEmployees(): Employee[] {
-    const employees: Employee[] = [
-      {
-        id: 1,
-        firstName: 'Aisulu',
-        lastName: 'Abdraimova',
-      },
-      {
-        id: 2,
-        firstName: 'Aidai',
-        lastName: 'Sydykbekova',
-      },
-      {
-        id: 3,
-        firstName: 'Aman',
-        lastName: 'Madiiarbekov',
-      },
-      {
-        id: 4,
-        firstName: 'Tilegen',
-        lastName: 'Asankulov',
-      },
-      {
-        id: 5,
-        firstName: 'Tavita',
-        lastName: 'Menashe',
-      },
-      {
-        id: 6,
-        firstName: 'FuMing',
-        lastName: 'Young',
-      },
-      {
-        id: 7,
-        firstName: 'Aaron',
-        lastName: 'Hong',
-      },
-      {
-        id: 8,
-        firstName: 'David',
-        lastName: 'Wise',
-      },
-    ];
-    return employees;
+  async getEmployees(): Promise<Observable<Employee[]>> {
+    return this.httpService.get<Employee[]>('admin/employees');
   }
 }
