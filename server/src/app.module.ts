@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AdminController } from './admin/admin.controller';
 import { EmployeeService } from './employee/employee.service';
+import { ConfigModule } from '@nestjs/config';
 
 const project_root = join(__dirname, '..', '..', '..', '..');
 @Module({
@@ -12,6 +13,7 @@ const project_root = join(__dirname, '..', '..', '..', '..');
     ServeStaticModule.forRoot({
       rootPath: join(project_root, 'client', 'dist', 'client'),
     }),
+    ConfigModule.forRoot(),
   ],
   controllers: [AppController, AdminController],
   providers: [AppService, EmployeeService],

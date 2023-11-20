@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { EmployeeAppRootComponent } from './employee-app/employee-app-root/employee-app-root.component';
 import { AdminAppModule } from './admin-app/admin-app.module';
 import { AdminAppRootComponent } from './admin-app/admin-app-root/admin-app-root.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(() =>
@@ -17,6 +18,7 @@ describe('AppComponent', () => {
         MatToolbarModule,
         MatIconModule,
         AdminAppModule,
+        HttpClientModule,
       ],
       declarations: [AppComponent],
     })
