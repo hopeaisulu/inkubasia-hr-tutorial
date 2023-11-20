@@ -1,51 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { Employee } from '@shared/employee.interface';
+import * as postgres from 'postgres';
 
 @Injectable()
 export class EmployeeService {
-  getAllEmployees(): Employee[] {
-    const employees: Employee[] = [
-      {
-        id: 1,
-        firstName: 'Aisulu',
-        lastName: 'Abdraimova',
-      },
-      {
-        id: 2,
-        firstName: 'Aidai',
-        lastName: 'Sydykbekova',
-      },
-      {
-        id: 3,
-        firstName: 'Aman',
-        lastName: 'Madiiarbekov',
-      },
-      {
-        id: 4,
-        firstName: 'Tilegen',
-        lastName: 'Asankulov',
-      },
-      {
-        id: 5,
-        firstName: 'Tavita',
-        lastName: 'Menashe',
-      },
-      {
-        id: 6,
-        firstName: 'FuMing',
-        lastName: 'Young',
-      },
-      {
-        id: 7,
-        firstName: 'Aaron',
-        lastName: 'Hong',
-      },
-      {
-        id: 8,
-        firstName: 'David',
-        lastName: 'Wise',
-      },
-    ];
+  private readonly db_url: string;
+  constructor(private configService: ConfigService) {
+    this.db_url = this.configService.get('DATABASE_URL')!;
+  }
+
+  async getAllEmployees(): Promise<Employee[]> {
+    const sql = postgres(this.db_url);
+    const employees: Employee[] = await sql`SELECT * FROM employee;`;
     return employees;
   }
 }

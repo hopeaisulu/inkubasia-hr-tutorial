@@ -3,8 +3,9 @@ fly.toml
 .git
 
 ### Files to ignore in server/
-/node_modules
-/dist
+server/node_modules
+server/dist
+server/.env
 
 ### Files to ignore in client/
 # Compiled output
