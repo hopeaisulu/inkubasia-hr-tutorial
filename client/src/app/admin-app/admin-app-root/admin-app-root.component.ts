@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from '@shared/employee.interface';
-import { Observable } from 'rxjs';
 import { EmployeeService } from 'src/app/employee.service';
 
 @Component({
@@ -8,11 +7,16 @@ import { EmployeeService } from 'src/app/employee.service';
   templateUrl: './admin-app-root.component.html',
   styleUrls: ['./admin-app-root.component.scss'],
 })
-export class AdminAppRootComponent {
+export class AdminAppRootComponent implements OnInit {
   constructor(private employeeService: EmployeeService) {}
-  employees$!: Observable<Employee[]>;
+  employees!: Employee[];
+
+  displayedColumns: string[] = ['id', 'firstName', 'lastName'];
 
   async ngOnInit() {
-    this.employees$ = await this.employeeService.getEmployees();
+    const employees = await this.employeeService.getEmployees();
+    employees.subscribe((employees: Employee[]) => {
+      this.employees = employees;
+    });
   }
 }
