@@ -6,16 +6,31 @@
 </mat-toolbar>
 <div class="content welcome-message">
   <span>Employees</span>
-  <div *ngIf="employees$ | async as employees">
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-      </tr>
-      <tr *ngFor="let employee of employees">
-        <td>{{ employee.id }}</td>
-        <td>{{ employee.firstName }} {{ employee.lastName }}</td>
-      </tr>
+  <div class="table-container">
+    <table mat-table [dataSource]="employees">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+        <mat-cell *matCellDef="let employee"
+          ><div>{{ employee.id }}</div></mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+        <mat-cell *matCellDef="let employee"
+          ><div>{{ employee.firstName }}</div></mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let employee"
+          ><div>{{ employee.lastName }}</div></mat-cell
+        >
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let dataSource; columns: displayedColumns"></mat-row>
     </table>
   </div>
 </div>

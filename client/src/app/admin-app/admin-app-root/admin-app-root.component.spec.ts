@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { EmployeeService } from 'src/app/employee.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 describe('AdminAppRootComponent', () => {
   let component: AdminAppRootComponent;
@@ -13,7 +14,7 @@ describe('AdminAppRootComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AdminAppRootComponent],
-      imports: [MatIconModule, MatToolbarModule],
+      imports: [MatIconModule, MatToolbarModule, MatTableModule],
       providers: [EmployeeService, HttpClient, HttpHandler],
     });
     fixture = TestBed.createComponent(AdminAppRootComponent);
